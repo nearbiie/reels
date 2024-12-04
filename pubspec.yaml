@@ -1,0 +1,235 @@
+name: leuke
+description: Leuke - A social platform for Videos.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+environment:
+  sdk: ">=2.15.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+  insta_login: 
+  geolocator: ^11.1.0
+  infinite_scroll_pagination: ^4.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  http: 1.1.2
+  convex_bottom_bar: 3.2.0
+  cached_network_image: 3.3.0
+  just_audio: 0.9.38
+  like_button: 2.0.5
+  awesome_dialog: ^3.2.1
+  camera: ^0.10.5+9
+  image_picker: ^1.0.7
+  visibility_detector: ^0.4.0+2
+  dio: ^5.4.3+1
+  photo_view: 0.14.0
+  flutter_facebook_auth: ^6.0.4
+  sign_in_with_apple: ^5.0.0
+  google_sign_in: ^6.2.1
+  video_player: 2.8.2
+  sliding_up_panel2: 3.3.0+1
+  percent_indicator: 4.2.3
+  device_info_plus: ^9.1.2
+  shimmer: 3.0.0
+  flutter_native_timezone_updated_gradle: ^2.0.3
+  change_app_package_name: ^1.0.0
+  carousel_slider: 5.0.0
+  share_plus: 7.2.2
+  grouped_list: 5.1.2
+  path_provider: ^2.1.2
+  fluttertoast: ^8.2.4
+  flutter_xlider: 3.5.0
+  url_launcher: 6.2.4
+  flutter_cache_manager: 3.3.1
+  pin_code_fields: 8.0.1
+  dotted_border: 2.1.0
+  dropdown_search: 5.0.6
+  flutter_html: 3.0.0-beta.2
+  flutter_svg: 2.0.9
+  velocity_x: 4.2.0
+  google_mobile_ads: 4.0.0
+  uni_links: ^0.5.1
+  permission_handler: 11.3.1
+  flutter_local_notifications: 17.2.3
+  custom_platform_device_id: 1.0.8
+  firebase_messaging: 14.7.16
+
+  firebase_core: ^2.24.2
+  emoji_picker_flutter: ^2.0.0
+  skeleton_loader:
+    path: ./packages_list/skeleton_loader
+  ffmpeg_kit_flutter_min_gpl: 6.0.3-LTS
+  stories_editor:
+    path: ./packages_list/stories_editor
+  flutter_datetime_picker_plus: ^2.0.1
+  animated_text_kit: 4.2.2
+  wakelock_plus: 1.1.4
+  video_thumbnail: ^0.5.3
+  platform: 3.1.0
+  open_file: 3.3.2
+  image_gallery_saver: 2.0.3
+  flutter_easyloading: 3.0.5
+  connectivity_plus: 4.0.1
+  flutter_native_splash: 2.3.1
+  animate_icons: 2.0.0
+
+  #state management
+  get: ^4.6.6
+  get_storage: ^2.1.1
+
+  #chat
+  pusher_channels_flutter: 2.2.1
+
+  saver_gallery: ^3.0.5
+  modal_bottom_sheet: ^3.0.0-pre
+  smooth_video_progress:
+    path: ./packages_list/smooth_video_progress
+  google_fonts: 6.2.1
+  another_flutter_splash_screen: ^1.2.0
+#  marquee: ^2.2.3
+  marqueer: ^1.4.4
+  lottie: ^2.7.0
+  sentry_flutter: 
+
+  #qr
+  qr_flutter: 4.1.0
+  qr_code_scanner: 1.0.1
+
+  #clickable hashtags & tagging in video description
+  detectable_text_field: ^3.0.2
+  expandable: ^5.0.1
+
+  #ai description writer
+  google_generative_ai: ^0.4.0
+  el_tooltip: ^2.0.0
+
+  #animation
+  animations: any
+  bouncy_widget: ^2.0.1
+
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/cfg/
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+  - family: ProductSans
+    fonts:
+      - asset: assets/fonts/ProductSans-Thin.ttf
+        weight: 100
+      - asset: assets/fonts/ProductSans-Thin.ttf
+        weight: 200
+      - asset: assets/fonts/ProductSans-Light.ttf
+        weight: 300
+      - asset: assets/fonts/ProductSans-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/ProductSans-Medium.ttf
+        weight: 500
+      - asset: assets/fonts/ProductSans-Bold.ttf
+        weight: 600
+      - asset: assets/fonts/ProductSans-Black.ttf
+        weight: 700
+      - asset: assets/fonts/ProductSans-Black.ttf
+        weight: 800
+      - asset: assets/fonts/ProductSans-Black.ttf
+        weight: 900
+
+  - family: Billabong
+    fonts:
+      - asset: assets/fonts/Billabong.ttf
+  - family: GrandHotel
+    fonts:
+      - asset: assets/fonts/GrandHotel.otf
+  - family: OpenSans
+    fonts:
+      - asset: assets/fonts/OpenSans.ttf
+  - family: Oswald
+    fonts:
+      - asset: assets/fonts/Oswald.ttf
+  - family: Quicksand
+    fonts:
+      - asset: assets/fonts/Quicksand.otf
+  - family: BeautifulPeople
+    fonts:
+      - asset: assets/fonts/BeautifulPeople.ttf
+  - family: BeautyMountains
+    fonts:
+      - asset: assets/fonts/BeautyMountains.ttf
+  - family: BiteChocolate
+    fonts:
+      - asset: assets/fonts/BiteChocolate.ttf
+  - family: BlackberryJam
+    fonts:
+      - asset: assets/fonts/BlackberryJam.ttf
+  - family: Tomatoes
+    fonts:
+      - asset: assets/fonts/Tomatoes.ttf
+  - family: BunchBlossoms
+    fonts:
+      - asset: assets/fonts/BunchBlossoms.ttf
+  - family: CinderelaRegular
+    fonts:
+      - asset: assets/fonts/CinderelaRegular.ttf
+  - family: Countryside
+    fonts:
+      - asset: assets/fonts/Countryside.ttf
+  - family: Halimun
+    fonts:
+      - asset: assets/fonts/Halimun.ttf
+  - family: LemonJelly
+    fonts:
+      - asset: assets/fonts/LemonJelly.ttf
+  - family: QuiteMagicalRegular
+    fonts:
+      - asset: assets/fonts/QuiteMagicalRegular.ttf
+  - family: TropicalAsianDemoRegular
+    fonts:
+      - asset: assets/fonts/TropicalAsianDemoRegular.ttf
+  - family: VeganStyle
+    fonts:
+      - asset: assets/fonts/VeganStyle.ttf

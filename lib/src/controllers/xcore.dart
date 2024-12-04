@@ -1,0 +1,14 @@
+export 'chat_controller.dart';
+export 'comment_controller.dart';
+export 'dashboard_controller.dart';
+export 'following_controller.dart';
+export 'notification_controller.dart';
+export 'post_controller.dart';
+export 'profile_controller.dart';
+export 'search_controller.dart';
+export 'sound_controller.dart';
+export 'splash_screen_controller.dart';
+export 'user_controller.dart';
+export 'user_profile_controller.dart';
+export 'verify_profile_controller.dart';
+export 'video_recorder_controller.dart';

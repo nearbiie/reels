@@ -1,0 +1,10 @@
+double get headlineSmall => 16;
+double get headlineMedium => 18;
+double get headlineLarge => 22;
+double get bodySmall => 14;
+double get bodyMedium => 16;
+double get bodyLarge => 18;
+double get titleSmall => 14;
+double get titleMedium => 16;
+double get titleLarge => 18;
+double get buttonTextFontSize => 16;
