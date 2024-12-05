@@ -106,7 +106,7 @@ dev_dependencies:
   google_fonts: 6.2.1
   another_flutter_splash_screen: ^1.2.0
 #  marquee: ^2.2.3
-  marqueer: ^1.4.4
+  marqueer: 1.4.4
   lottie: ^2.7.0
   sentry_flutter: 
 
