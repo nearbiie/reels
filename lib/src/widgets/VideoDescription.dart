@@ -447,6 +447,7 @@ class _VideoDescriptionState extends State<VideoDescription>
                       width: 140.0,
                       padding: EdgeInsets.symmetric(horizontal: 3, vertical: 7),
                       child: Marqueer(
+                        autoStartAfter: const Duration(seconds: 3),
                         child: (CommonHelper.isNumeric(
                                       widget.video.soundTitle.replaceAll(
                                         '.mp3',
