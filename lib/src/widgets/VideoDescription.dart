@@ -18,7 +18,8 @@ class VideoDescription extends StatefulWidget {
   _VideoDescriptionState createState() => _VideoDescriptionState();
 }
 
-class _VideoDescriptionState extends State<VideoDescription> with SingleTickerProviderStateMixin {
+class _VideoDescriptionState extends State<VideoDescription>
+    with SingleTickerProviderStateMixin {
   String username = "";
   String description = "";
   String appToken = "";
@@ -66,7 +67,8 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
         // constraints: BoxConstraints(
         //   maxHeight: Get.height * (dashboardService.descriptionHeight.value / 100) + Get.mediaQuery.padding.bottom + dashboardService.paddingBottom,
         // ),
-        padding: EdgeInsets.only(left: 15.0, bottom: Get.mediaQuery.viewPadding.bottom > 0 ? 10 : 0),
+        padding: EdgeInsets.only(
+            left: 15.0, bottom: Get.mediaQuery.viewPadding.bottom > 0 ? 10 : 0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -80,10 +82,14 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                   onTap: () async {
                     mainService.isOnHomePage.value = false;
                     mainService.isOnHomePage.refresh();
-                    if (widget.video.userId == authService.currentUser.value.id) {
+                    if (widget.video.userId ==
+                        authService.currentUser.value.id) {
                       dashboardService.currentPage.value = 4;
                       dashboardService.currentPage.refresh();
-                      dashboardService.pageController.value.animateToPage(dashboardService.currentPage.value, duration: Duration(milliseconds: 100), curve: Curves.linear);
+                      dashboardService.pageController.value.animateToPage(
+                          dashboardService.currentPage.value,
+                          duration: Duration(milliseconds: 100),
+                          curve: Curves.linear);
                       dashboardService.pageController.refresh();
                     } else {
                       UserController userCon = Get.find();
@@ -103,7 +109,9 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                             borderRadius: BorderRadius.circular(50.0),
                             child: CachedNetworkImage(
                               imageUrl: profileImageUrl,
-                              placeholder: (context, url) => CommonHelper.showLoaderSpinner(Get.theme.iconTheme.color!),
+                              placeholder: (context, url) =>
+                                  CommonHelper.showLoaderSpinner(
+                                      Get.theme.iconTheme.color!),
                               height: 45.0 * (Platform.isIOS ? 1.2 : 1),
                               width: 45.0 * (Platform.isIOS ? 1.2 : 1),
                               fit: BoxFit.fitHeight,
@@ -135,10 +143,14 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                           mainService.isOnHomePage.value = false;
                           mainService.isOnHomePage.refresh();
 
-                          if (widget.video.userId == authService.currentUser.value.id) {
+                          if (widget.video.userId ==
+                              authService.currentUser.value.id) {
                             dashboardService.currentPage.value = 4;
                             dashboardService.currentPage.refresh();
-                            dashboardService.pageController.value.animateToPage(dashboardService.currentPage.value, duration: Duration(milliseconds: 100), curve: Curves.linear);
+                            dashboardService.pageController.value.animateToPage(
+                                dashboardService.currentPage.value,
+                                duration: Duration(milliseconds: 100),
+                                curve: Curves.linear);
                             dashboardService.pageController.refresh();
                           } else {
                             UserController userCon = Get.find();
@@ -196,12 +208,16 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                               )
                             : InkWell(
                                 onTap: () async {
-                                  if (authService.currentUser.value.accessToken != "") {
-                                    await dashboardController.followUnfollowUser();
+                                  if (authService
+                                          .currentUser.value.accessToken !=
+                                      "") {
+                                    await dashboardController
+                                        .followUnfollowUser();
                                   } else {
                                     mainService.isOnHomePage.value = false;
 
-                                    dashboardController.stopController(dashboardService.pageIndex.value);
+                                    dashboardController.stopController(
+                                        dashboardService.pageIndex.value);
                                     Get.offNamed('/login');
                                   }
                                 },
@@ -213,11 +229,22 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   child: Center(
-                                    child: !dashboardController.showFollowLoader.value
+                                    child: !dashboardController
+                                            .showFollowLoader.value
                                         ? Text(
-                                            (dashboardService.videosData.value.videos.elementAt(dashboardService.pageIndex.value).isFollowing == 0) ? "Follow".tr : "Unfollow".tr,
+                                            (dashboardService
+                                                        .videosData.value.videos
+                                                        .elementAt(
+                                                            dashboardService
+                                                                .pageIndex
+                                                                .value)
+                                                        .isFollowing ==
+                                                    0)
+                                                ? "Follow".tr
+                                                : "Unfollow".tr,
                                             style: TextStyle(
-                                              color: mainService.setting.value.buttonTextColor,
+                                              color: mainService.setting.value
+                                                  .buttonTextColor,
                                               fontWeight: FontWeight.normal,
                                               fontSize: 12,
                                             ),
@@ -231,7 +258,10 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                         ),
                         widget.video.totalFollowers > 0
                             ? Text(
-                                "${CommonHelper.formatter(widget.video.totalFollowers.toString())} " + (widget.video.totalFollowers > 1 ? "Followers".tr : "Follower".tr),
+                                "${CommonHelper.formatter(widget.video.totalFollowers.toString())} " +
+                                    (widget.video.totalFollowers > 1
+                                        ? "Followers".tr
+                                        : "Follower".tr),
                                 style: TextStyle(
                                   color: Get.theme.primaryColor,
                                   fontSize: 12,
@@ -241,13 +271,22 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                         description.length > 55
                             ? InkWell(
                                 onTap: () {
-                                  dashboardService.descriptionHeight.value = dashboardService.descriptionHeight.value == 18.0 ? 40.0 : 18.0;
+                                  dashboardService.descriptionHeight.value =
+                                      dashboardService
+                                                  .descriptionHeight.value ==
+                                              18.0
+                                          ? 40.0
+                                          : 18.0;
                                   dashboardService.descriptionHeight.refresh();
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 2.0, left: 3, right: 3),
+                                  padding: const EdgeInsets.only(
+                                      top: 2.0, left: 3, right: 3),
                                   child: Icon(
-                                    dashboardService.descriptionHeight.value == 18.0 ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                                    dashboardService.descriptionHeight.value ==
+                                            18.0
+                                        ? Icons.keyboard_arrow_up
+                                        : Icons.keyboard_arrow_down,
                                     color: Get.theme.indicatorColor,
                                     size: 18,
                                   ),
@@ -268,24 +307,46 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                       controller: dashboardController.expandController,
                       child: Container(
                         constraints: BoxConstraints(
-                          maxHeight: (Get.height * (dashboardService.descriptionHeight.value / 100)),
+                          maxHeight: (Get.height *
+                              (dashboardService.descriptionHeight.value / 100)),
                         ),
                         child: ShaderMask(
                           shaderCallback: (Rect rect) {
                             return const LinearGradient(
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
-                              colors: [Colors.transparent, Colors.black87, Colors.black, Colors.black, Colors.black87, Colors.black54, Colors.black45, Colors.black38],
-                              stops: [0.0, 0.03, 0.09, 0.7, 0.8, 0.9, 0.95, 1.0],
+                              colors: [
+                                Colors.transparent,
+                                Colors.black87,
+                                Colors.black,
+                                Colors.black,
+                                Colors.black87,
+                                Colors.black54,
+                                Colors.black45,
+                                Colors.black38
+                              ],
+                              stops: [
+                                0.0,
+                                0.03,
+                                0.09,
+                                0.7,
+                                0.8,
+                                0.9,
+                                0.95,
+                                1.0
+                              ],
                             ).createShader(rect);
                           },
                           blendMode: BlendMode.dstIn,
                           child: SingleChildScrollView(
                             scrollDirection: Axis.vertical, //.horizontal
                             child: Builder(builder: (context) {
-                              dashboardController.expandController = ExpandableController.of(context, required: true)!;
+                              dashboardController.expandController =
+                                  ExpandableController.of(context,
+                                      required: true)!;
                               return ExpandablePanel(
-                                controller: dashboardController.expandController,
+                                controller:
+                                    dashboardController.expandController,
                                 collapsed: DetectableText(
                                   trimMode: TrimMode.Length,
                                   trimExpandedText: " " + "show less".tr,
@@ -299,7 +360,8 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                                   basicStyle: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
-                                    color: Get.theme.primaryColor.withOpacity(0.85),
+                                    color: Get.theme.primaryColor
+                                        .withOpacity(0.85),
                                   ),
                                   onTap: (text) {
                                     dashboardController.onLinkTap(text);
@@ -351,7 +413,8 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                     SoundController soundController = Get.find();
                     dashboardController.soundShowLoader.value = true;
                     dashboardController.soundShowLoader.refresh();
-                    SoundData sound = await soundController.getSound(widget.video.soundId);
+                    SoundData sound =
+                        await soundController.getSound(widget.video.soundId);
                     soundController.selectSound(sound);
                     dashboardController.soundShowLoader.value = false;
                     dashboardController.soundShowLoader.refresh();
@@ -374,7 +437,8 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                     SvgPicture.asset(
                       'assets/icons/music.svg',
                       height: 12.0,
-                      colorFilter: ColorFilter.mode(Get.theme.primaryColor, BlendMode.srcIn),
+                      colorFilter: ColorFilter.mode(
+                          Get.theme.primaryColor, BlendMode.srcIn),
                     ),
                     SizedBox(
                       width: 5,
@@ -382,7 +446,7 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                     Container(
                       width: 140.0,
                       padding: EdgeInsets.symmetric(horizontal: 3, vertical: 7),
-                      child: Marqueer(
+                      child: Marqueer.builder(
                         child: (CommonHelper.isNumeric(
                                       widget.video.soundTitle.replaceAll(
                                         '.mp3',
@@ -390,12 +454,25 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
                                       ),
                                     ) ||
                                     widget.video.soundTitle == ""
-                                ? " - ${'Original Sound'.tr} " + (widget.video.soundUsername != "" ? "@${widget.video.soundUsername}" : "") + "       "
-                                : " - @" + (widget.video.soundUsername == "" ? "NoUser" : widget.video.soundUsername) + " " + widget.video.soundTitle.replaceAll('.mp3', '') + "       ")
+                                ? " - ${'Original Sound'.tr} " +
+                                    (widget.video.soundUsername != ""
+                                        ? "@${widget.video.soundUsername}"
+                                        : "") +
+                                    "       "
+                                : " - @" +
+                                    (widget.video.soundUsername == ""
+                                        ? "NoUser"
+                                        : widget.video.soundUsername) +
+                                    " " +
+                                    widget.video.soundTitle
+                                        .replaceAll('.mp3', '') +
+                                    "       ")
                             .text
                             .textStyle(
                               TextStyle(
-                                color: mainService.setting.value.dashboardIconColor!.withOpacity(0.8),
+                                color: mainService
+                                    .setting.value.dashboardIconColor!
+                                    .withOpacity(0.8),
                                 fontSize: 14,
                               ),
                             )
@@ -488,12 +565,22 @@ class _VideoDescriptionState extends State<VideoDescription> with SingleTickerPr
         height: 10,
         child: CircularProgressIndicator(
           strokeWidth: 2,
-          valueColor: new AlwaysStoppedAnimation<Color>(mainService.setting.value.dashboardIconColor!),
+          valueColor: new AlwaysStoppedAnimation<Color>(
+              mainService.setting.value.dashboardIconColor!),
         ),
       ),
     );
   }
 
-  LinearGradient get musicGradient =>
-      LinearGradient(colors: [Colors.grey[800]!, Colors.grey[900]!, Colors.grey[900]!, Colors.grey[800]!], stops: [0.0, 0.4, 0.6, 1.0], begin: Alignment.bottomLeft, end: Alignment.topRight);
+  LinearGradient get musicGradient => LinearGradient(colors: [
+        Colors.grey[800]!,
+        Colors.grey[900]!,
+        Colors.grey[900]!,
+        Colors.grey[800]!
+      ], stops: [
+        0.0,
+        0.4,
+        0.6,
+        1.0
+      ], begin: Alignment.bottomLeft, end: Alignment.topRight);
 }
