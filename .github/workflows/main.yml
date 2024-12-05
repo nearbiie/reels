@@ -20,7 +20,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '3.22.1'
+          flutter-version: '3.22.2'
       - run: flutter pub get
       - run: flutter build apk --debug --target-platform android-arm,android-arm64,android-x64 --split-per-abi
       - name: Push to Releases

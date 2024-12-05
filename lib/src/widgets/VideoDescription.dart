@@ -14,14 +14,6 @@ class VideoDescription extends StatefulWidget {
   final Video video;
   final PanelController pc3;
   VideoDescription(this.video, this.pc3);
-
-   const MarqueerScrollView({
-    required this.child,
-    Key? key,
-  }) : super(key: key);
-
-  final Widget child;
-  
   @override
   _VideoDescriptionState createState() => _VideoDescriptionState();
 }
@@ -66,7 +58,6 @@ class _VideoDescriptionState extends State<VideoDescription>
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    
   }
 
   @override
