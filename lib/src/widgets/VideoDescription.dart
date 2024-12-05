@@ -446,7 +446,7 @@ class _VideoDescriptionState extends State<VideoDescription>
                     Container(
                       width: 140.0,
                       padding: EdgeInsets.symmetric(horizontal: 3, vertical: 7),
-                      child: Marqueer.builder(
+                      child: Marqueer(
                         child: (CommonHelper.isNumeric(
                                       widget.video.soundTitle.replaceAll(
                                         '.mp3',
